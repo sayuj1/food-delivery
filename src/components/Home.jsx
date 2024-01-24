@@ -19,7 +19,7 @@ const Home = () => {
       {state?.isLoggedIn && <Navbar />}
       <div className='container mx-auto p-4'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-          {restaurantsData.map(restaurant => (
+          {/* {restaurantsData.map(restaurant => (
             <div
               key={restaurant.id}
               className='bg-white p-4 rounded-md shadow-md'
@@ -34,7 +34,7 @@ const Home = () => {
               </div>
               <div className='text-gray-600'>{restaurant.cuisine}</div>
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
     </React.Fragment>
