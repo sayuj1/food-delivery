@@ -1,116 +1,146 @@
 import React from 'react';
-import Cart from '../../assets/shoppingBag.svg'
-import Logo from '../../assets/foodDeliveryLogo.svg'
-import Profile from '../../assets/profile.png'
-import Menu from '../../assets/menu.svg'
-import Search from '../../assets/search.svg'
-import { Avatar, Badge, Dropdown, Button } from 'antd';
+import { useLoginContext } from '../../contexts/LoginContext';
+import { useNavigate } from 'react-router-dom';
+import { Avatar, Badge, Dropdown } from 'antd';
 const Navbar = () => {
+  const navigate = useNavigate();
+  const { state, setState } = useLoginContext();
+  const handleLogout = () => {
+    setState({
+      ...state,
+      isLoggedIn: false,
+    });
+    navigate('/login');
+  };
+  const profileItems = [
+    {
+      key: '1',
+      label: <span onClick={handleLogout}>Logout</span>,
+    },
+  ];
   const items = [
     {
       key: '1',
-      label: (
-        <a href="#">
-          Restaurants
-        </a>
-      ),
-    },
-    {
-      key: '3',
-      label: (
-        <a href="#">
-          Deals
-        </a>
-      ),
+      label: <p>Restaurants</p>,
     },
     {
       key: '2',
-      label: (
-        <a href="#">
-          My Orders
-        </a>
-      ),
-    }
+      label: <p>Deals</p>,
+    },
+    {
+      key: '3',
+      label: <p>My Orders</p>,
+    },
+    {
+      key: '4',
+      label: <span onClick={handleLogout}>Logout</span>,
+    },
   ];
   return (
     <div>
-      <div className=" p-4">
-        <div className="flex items-center justify-between">
-          <div className="text-[#83859C] text-lg font-bold">
-            <img src={Logo} alt="food-delivery-logo" className='inline-block' />
+      <div className='container mx-auto p-4'>
+        <div className='flex items-center justify-between'>
+          <div className='text-[#83859C] text-lg font-bold'>
+            <img src={process.env.PUBLIC_URL+'/assets/foodDeliveryLogo.svg'} alt='food-delivery-logo' className='inline-block' />
             <div className='relative inline-block'>
               <input
-                type="text"
-                placeholder="Search"
-                className="ml-12 px-4 py-1 rounded-xl bg-[#EDEEF2] focus:outline-none hidden lg:inline-block font-[Nunito] font-normal text-base placeholder:font-[Nunito] placeholder:text-base placeholder:font-normal"
+                type='text'
+                placeholder='Search'
+                className='ml-12 px-4 py-1 rounded-xl bg-[#EDEEF2] focus:outline-none hidden lg:inline-block font-[Nunito] font-normal text-base placeholder:font-[Nunito] placeholder:text-base placeholder:font-normal'
               />
-              <span className="absolute inset-y-0 right-0 top-1 flex items-center pr-3 filter-none">
-                <img src={Search} alt="" className='filter-none' />
+              <span className='absolute inset-y-0 right-0 top-1 flex items-center pr-3 filter-none'>
+                <img src={process.env.PUBLIC_URL+'/assets/search.svg'} alt='' className='filter-none' />
               </span>
             </div>
           </div>
           <div className='flex space-x-4'>
-            <div className="hidden lg:flex items-center space-x-4">
-              <div className="">
-                <a href="#" className="hover:text-gray-500 font-[Nunito] font-bold">Restaurants</a>
+            <div className='hidden lg:flex items-center space-x-4'>
+              <div className=''>
+                <a
+                  href='#'
+                  className='hover:text-gray-500 font-[Nunito] font-bold'
+                >
+                  Restaurants
+                </a>
               </div>
-              <div className="">
-                <a href="#" className="hover:text-gray-500 font-[Nunito] font-bold">Deals</a>
+              <div className=''>
+                <a
+                  href='#'
+                  className='hover:text-gray-500 font-[Nunito] font-bold'
+                >
+                  Deals
+                </a>
               </div>
-              <span className='w-[2px] bg-[#EDEEF2] h-full'>
-              </span>
-              <div className="">
-                <a href="#" className="hover:text-gray-500 font-[Nunito] font-bold">My Orders</a>
+              <span className='w-[2px] bg-[#EDEEF2] h-full'></span>
+              <div className=''>
+                <a
+                  href='#'
+                  className='hover:text-gray-500 font-[Nunito] font-bold'
+                >
+                  My Orders
+                </a>
               </div>
-              {/* <div className=''>
-              <Badge count={4} color='#4E60FF'>
-                <Avatar shape="square" src={Cart} style={{ backgroundColor: '#F3F4FF', padding: '7px', cursor: 'pointer', borderRadius: '10px' }} />
-              </Badge>
-            </div> */}
-              {/* <div className="">
-            <span className="relative ">
-              <span className='min-h-12 min-w-12 bg-[#F3F4FF] rounded-md '>
-                <img src={Cart} alt="" className="bg-[#F3F4FF] rounded-md h-6 w-6 cursor-pointer p-1" />
-              </span>
-              <span className="absolute -top-3 -right-2 bg-[#4E60FF] text-white rounded-full px-1 text-xs">
-                3
-              </span>
-            </span>
-          </div> */}
-              {/* <div className=''>
-              <Avatar shape="square" src={Profile} style={{ cursor: 'pointer', border: '2px solid #EDEEF2', borderRadius: '10px' }} />
-            </div> */}
-              {/* <div className="text-white">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 cursor-pointer text-white hover:text-gray-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </div> */}
             </div>
             <div className='flex items-center space-x-4'>
               <div className=''>
                 <Badge count={4} color='#4E60FF'>
-                  <Avatar shape="square" src={Cart} style={{ backgroundColor: '#F3F4FF', padding: '7px', cursor: 'pointer', borderRadius: '10px' }} />
+                  <Avatar
+                    shape='square'
+                    src={process.env.PUBLIC_URL+'/assets/shoppingBag.svg'}
+                    style={{
+                      backgroundColor: '#F3F4FF',
+                      padding: '7px',
+                      cursor: 'pointer',
+                      borderRadius: '10px',
+                    }}
+                  />
                 </Badge>
               </div>
-              <div className=''>
-                <Avatar shape="square" src={Profile} style={{ cursor: 'pointer', border: '2px solid #EDEEF2', borderRadius: '10px' }} />
-              </div>
-              <span className='lg:hidden w-[2px] bg-[#EDEEF2] h-full'>
-              </span>
               <div className='lg:hidden'>
-                <Dropdown menu={{ items }} placement="bottomRight" trigger={['click']}>
-                  <Avatar shape="square" src={Menu} style={{ backgroundColor: '#F3F4FF', padding: '7px', cursor: 'pointer', borderRadius: '10px' }} />
+                <Avatar
+                  shape='square'
+                  src={process.env.PUBLIC_URL+'/assets/profile.png'}
+                  style={{
+                    cursor: 'pointer',
+                    border: '2px solid #EDEEF2',
+                    borderRadius: '10px',
+                  }}
+                />
+              </div>
+              <div className='hidden lg:inline-block'>
+                <Dropdown
+                  menu={{ items: profileItems }}
+                  placement='bottomRight'
+                  trigger={['click']}
+                >
+                    <Avatar
+                      shape='square'
+                      src={process.env.PUBLIC_URL+'/assets/profile.png'}
+                      style={{
+                        cursor: 'pointer',
+                        border: '2px solid #EDEEF2',
+                        borderRadius: '10px',
+                      }}
+                    />
+                </Dropdown>
+              </div>
+              <span className='lg:hidden w-[2px] bg-[#EDEEF2] h-full'></span>
+              <div className='lg:hidden'>
+                <Dropdown
+                  menu={{ items }}
+                  placement='bottomRight'
+                  trigger={['click']}
+                >
+                  <Avatar
+                    shape='square'
+                    src={process.env.PUBLIC_URL+'/assets/menu.svg'}
+                    style={{
+                      backgroundColor: '#F3F4FF',
+                      padding: '7px',
+                      cursor: 'pointer',
+                      borderRadius: '10px',
+                    }}
+                  />
                 </Dropdown>
               </div>
             </div>
@@ -118,6 +148,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className='bg-[#EDEEF2] h-[0.5px]'></div>
+      <br/>
     </div>
   );
 };

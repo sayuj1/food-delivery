@@ -6,9 +6,9 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { useLoginContext } from './contexts/LoginContext';
-import Home from './components/Home';
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Home from './components/home/Home';
+import Login from './components/auth/Login';
+import Signup from './components/auth/Signup';
 
 const PrivateRoute = ({ state, children }) => {
   if (state?.isLoggedIn) return children;
@@ -20,6 +20,14 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route
+          path='/'
+          element={
+            <PrivateRoute state={state}>
+              <Home />
+            </PrivateRoute>
+          }
+        />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route
