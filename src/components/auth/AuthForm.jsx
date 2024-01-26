@@ -80,12 +80,12 @@ const AuthForm = props => {
 
           <div className='col-span-12 lg:col-span-5  h-full p-6 space-y-6 bg-white shadow-md hover:shadow-lg rounded-md'>
             <img
-              src={process.env.PUBLIC_URL + '/assets/foodDeliveryLogo.svg'}
+              src={'assets/foodDeliveryLogo.svg'}
               alt='food-delivery-logo'
               className='md:mx-[120px]'
             />
             <div className='md:mx-[120px] items-center h-3/4 mt-24'>
-              <div className='text-4xl font-extrabold text-gray-1000 mb-5 font-[Nunito]'>
+              <div className='text-4xl font-extrabold text-gray-1000 mb-5'>
                 {title}
               </div>
 
@@ -138,12 +138,12 @@ const AuthForm = props => {
                     >
                       {!showPassword ? (
                         <img
-                          src={process.env.PUBLIC_URL + '/assets/eye.svg'}
+                          src={'assets/eye.svg'}
                           alt='Eye'
                         />
                       ) : (
                         <img
-                          src={process.env.PUBLIC_URL + '/assets/hiddenEye.svg'}
+                          src={'assets/hiddenEye.svg'}
                           alt='Hidden Eye'
                         />
                       )}

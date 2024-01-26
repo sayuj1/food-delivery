@@ -38,18 +38,18 @@ const Navbar = () => {
   ];
   return (
     <div>
-      <div className='container mx-auto p-4'>
+      <div className='md:w-[90%] mx-auto p-4'>
         <div className='flex items-center justify-between'>
           <div className='text-[#83859C] text-lg font-bold'>
-            <img src={process.env.PUBLIC_URL+'/assets/foodDeliveryLogo.svg'} alt='food-delivery-logo' className='inline-block' />
+            <img src={'assets/foodDeliveryLogo.svg'} alt='food-delivery-logo' className='inline-block' />
             <div className='relative inline-block'>
               <input
                 type='text'
                 placeholder='Search'
-                className='ml-12 px-4 py-1 rounded-xl bg-[#EDEEF2] focus:outline-none hidden lg:inline-block font-[Nunito] font-normal text-base placeholder:font-[Nunito] placeholder:text-base placeholder:font-normal'
+                className='ml-12 px-4 py-1 rounded-xl bg-[#EDEEF2] focus:outline-none hidden lg:inline-block font-normal text-base  placeholder:text-base placeholder:font-normal'
               />
               <span className='absolute inset-y-0 right-0 top-1 flex items-center pr-3 filter-none'>
-                <img src={process.env.PUBLIC_URL+'/assets/search.svg'} alt='' className='filter-none' />
+                <img src={'assets/search.svg'} alt='' className='filter-none' />
               </span>
             </div>
           </div>
@@ -58,7 +58,7 @@ const Navbar = () => {
               <div className=''>
                 <a
                   href='#'
-                  className='hover:text-gray-500 font-[Nunito] font-bold'
+                  className='hover:text-gray-500 font-bold'
                 >
                   Restaurants
                 </a>
@@ -66,7 +66,7 @@ const Navbar = () => {
               <div className=''>
                 <a
                   href='#'
-                  className='hover:text-gray-500 font-[Nunito] font-bold'
+                  className='hover:text-gray-500 font-bold'
                 >
                   Deals
                 </a>
@@ -75,7 +75,7 @@ const Navbar = () => {
               <div className=''>
                 <a
                   href='#'
-                  className='hover:text-gray-500 font-[Nunito] font-bold'
+                  className='hover:text-gray-500 font-bold'
                 >
                   My Orders
                 </a>
@@ -86,7 +86,7 @@ const Navbar = () => {
                 <Badge count={4} color='#4E60FF'>
                   <Avatar
                     shape='square'
-                    src={process.env.PUBLIC_URL+'/assets/shoppingBag.svg'}
+                    src={'assets/shoppingBag.svg'}
                     style={{
                       backgroundColor: '#F3F4FF',
                       padding: '7px',
@@ -99,7 +99,7 @@ const Navbar = () => {
               <div className='lg:hidden'>
                 <Avatar
                   shape='square'
-                  src={process.env.PUBLIC_URL+'/assets/profile.png'}
+                  src={'assets/profile.png'}
                   style={{
                     cursor: 'pointer',
                     border: '2px solid #EDEEF2',
@@ -113,15 +113,15 @@ const Navbar = () => {
                   placement='bottomRight'
                   trigger={['click']}
                 >
-                    <Avatar
-                      shape='square'
-                      src={process.env.PUBLIC_URL+'/assets/profile.png'}
-                      style={{
-                        cursor: 'pointer',
-                        border: '2px solid #EDEEF2',
-                        borderRadius: '10px',
-                      }}
-                    />
+                  <Avatar
+                    shape='square'
+                    src={'assets/profile.png'}
+                    style={{
+                      cursor: 'pointer',
+                      border: '2px solid #EDEEF2',
+                      borderRadius: '10px',
+                    }}
+                  />
                 </Dropdown>
               </div>
               <span className='lg:hidden w-[2px] bg-[#EDEEF2] h-full'></span>
@@ -133,7 +133,7 @@ const Navbar = () => {
                 >
                   <Avatar
                     shape='square'
-                    src={process.env.PUBLIC_URL+'/assets/menu.svg'}
+                    src={'assets/menu.svg'}
                     style={{
                       backgroundColor: '#F3F4FF',
                       padding: '7px',
@@ -148,7 +148,6 @@ const Navbar = () => {
         </div>
       </div>
       <div className='bg-[#EDEEF2] h-[0.5px]'></div>
-      <br/>
     </div>
   );
 };

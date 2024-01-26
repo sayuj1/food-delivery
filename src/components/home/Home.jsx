@@ -12,54 +12,93 @@ const restaurantsData = [
     name: 'Royal Sushi House',
     time: '30-40',
     minsum: '$32',
-    categories: ['Sushi'],
-    image: '/assets/profile.png',
+    categories: [
+      {
+        title: 'Sushi',
+        image: 'assets/sushi.png'
+      }
+    ],
+    image: 'assets/royal-sushi-house.png',
     isFeatured: true,
+    cartValue: 0
   },
   {
     id: 2,
-    name: 'Royal Sushi House',
-    time: '30-40',
-    minsum: '$32',
-    categories: ['Sushi'],
-    image: '/assets/profile.png',
+    name: 'Burgers & Pizza',
+    time: '40-60',
+    minsum: '$24',
+    categories: [
+      {
+        title: 'Burger',
+        image: 'assets/sm-burger.png'
+      },
+      {
+        title: 'Pizza',
+        image: 'assets/pizza.png'
+      }],
+    image: 'assets/burder-pizza.png',
     isFeatured: true,
+    cartValue: 2
   },
   {
     id: 3,
-    name: 'Royal Sushi House',
-    time: '30-40',
-    minsum: '$32',
-    categories: ['Sushi'],
-    image: '/assets/profile.png',
+    name: 'Ninja Sushi',
+    time: '20-40',
+    minsum: '$40',
+    categories: [
+      {
+        title: 'Sushi',
+        image: 'assets/sushi.png'
+      }
+    ],
+    image: 'assets/ninja-sushi.png',
     isFeatured: false,
+    cartValue: 0
   },
   {
     id: 4,
-    name: 'Royal Sushi House',
-    time: '30-40',
-    minsum: '$32',
-    categories: ['Sushi'],
-    image: '/assets/profile.png',
+    name: 'Sushi Master',
+    time: '60-70',
+    minsum: '$49',
+    categories: [
+      {
+        title: 'Sushi',
+        image: 'assets/sushi.png'
+      }
+    ],
+    image: 'assets/sushi-master.png',
     isFeatured: false,
+    cartValue: 0
   },
   {
     id: 5,
-    name: 'Royal Sushi House',
-    time: '30-40',
-    minsum: '$32',
-    categories: ['Sushi'],
-    image: '/assets/profile.png',
+    name: 'Japanese Sushi',
+    time: '30-50',
+    minsum: '$104',
+    categories: [
+      {
+        title: 'Sushi',
+        image: 'assets/sushi.png'
+      }
+    ],
+    image: 'assets/japanese-sushi.png',
     isFeatured: false,
+    cartValue: 0
   },
   {
     id: 6,
-    name: 'Royal Sushi House',
-    time: '30-40',
-    minsum: '$32',
-    categories: ['Sushi'],
-    image: '/assets/profile.png',
+    name: 'Kobe',
+    time: '20-30',
+    minsum: '$57',
+    categories: [
+      {
+        title: 'Sushi',
+        image: 'assets/sushi.png'
+      }
+    ],
+    image: 'assets/kobe.png',
     isFeatured: false,
+    cartValue: 0
   },
 ];
 const discountData = [
@@ -68,15 +107,15 @@ const discountData = [
     title: 'All Deserts',
     subTitle: 'Deserty',
     percentage: '20',
-    image: '/assets/shoppingBag.svg',
-    bg: '#87CEEB',
+    image: 'assets/cupcake.png',
+    bg: '#F3F4FF',
   },
   {
     id: 2,
     title: 'Big Burgers',
     subTitle: 'Foodies',
     percentage: '50',
-    image: '/assets/shoppingBag.svg',
+    image: 'assets/burger.png',
     bg: '#FFF5EE',
   },
 ];
@@ -84,45 +123,43 @@ const categories = [
   {
     id: 1,
     title: 'Pizza',
-    image: '/assets/shoppingBag.svg',
+    image: 'assets/pizza.png',
   },
   {
     id: 2,
     title: 'Burger',
-    image: '/assets/shoppingBag.svg',
+    image: 'assets/sm-burger.png',
   },
   {
     id: 3,
     title: 'BBQ',
-    image: '/assets/shoppingBag.svg',
+    image: 'assets/bbq.png',
   },
   {
     id: 4,
     title: 'Sushi',
-    image: '/assets/shoppingBag.svg',
+    image: 'assets/sushi.png',
   },
   {
     id: 5,
     title: 'Vegan',
-    image: '/assets/shoppingBag.svg',
+    image: 'assets/vegan.png',
   },
   {
     id: 6,
     title: 'Desserts',
-    image: '/assets/shoppingBag.svg',
+    image: 'assets/sm-cupcake.png',
   },
 ];
 const Home = () => {
   const { state } = useLoginContext();
   return (
     <React.Fragment>
-      {state?.isLoggedIn && <Navbar />}
-      <div className='container mx-auto p-4'>
-        <DiscountSection discountData={discountData}/>
-        <CategorySection categories={categories}/>
-        Nearby Resturants
-        <br/>
-        <ResturantSection restaurantsData={restaurantsData}/>
+      <div className='sticky top-0 z-50 bg-white'>{state?.isLoggedIn && <Navbar />}</div>
+      <div className='md:w-[90%] mx-auto p-4'>
+        <DiscountSection discountData={discountData} />
+        <CategorySection categories={categories} />
+        <ResturantSection restaurantsData={restaurantsData} />
       </div>
     </React.Fragment>
   );
