@@ -137,15 +137,9 @@ const AuthForm = props => {
                       onClick={handleTogglePassword}
                     >
                       {!showPassword ? (
-                        <img
-                          src={'assets/eye.svg'}
-                          alt='Eye'
-                        />
+                        <img src={'assets/eye.svg'} alt='Eye' />
                       ) : (
-                        <img
-                          src={'assets/hiddenEye.svg'}
-                          alt='Hidden Eye'
-                        />
+                        <img src={'assets/hiddenEye.svg'} alt='Hidden Eye' />
                       )}
                     </span>
                   </div>
