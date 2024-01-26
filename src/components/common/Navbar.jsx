@@ -15,25 +15,40 @@ const Navbar = () => {
   const profileItems = [
     {
       key: '1',
-      label: <span onClick={handleLogout}>Logout</span>,
+      label: <button onClick={handleLogout}>Logout</button>,
     },
   ];
   const items = [
     {
       key: '1',
-      label: <p>Restaurants</p>,
+      label: (
+        <a
+          href='#restaurant'
+          className='hover:text-gray-500 font-bold page-scroll'
+        >
+          Restaurants
+        </a>
+      ),
     },
     {
       key: '2',
-      label: <p>Deals</p>,
+      label: (
+        <a href='#' className='hover:text-gray-500 font-bold page-scroll'>
+          Deals
+        </a>
+      ),
     },
     {
       key: '3',
-      label: <p>My Orders</p>,
+      label: (
+        <a href='#' className='hover:text-gray-500 font-bold page-scroll'>
+          My Orders
+        </a>
+      ),
     },
     {
       key: '4',
-      label: <span onClick={handleLogout}>Logout</span>,
+      label: <button className='hover:text-gray-500 font-bold' onClick={handleLogout}>Logout</button>,
     },
   ];
   return (
@@ -41,7 +56,11 @@ const Navbar = () => {
       <div className='md:w-[90%] mx-auto p-4'>
         <div className='flex items-center justify-between'>
           <div className='text-[#83859C] text-lg font-bold'>
-            <img src={'assets/foodDeliveryLogo.svg'} alt='food-delivery-logo' className='inline-block' />
+            <img
+              src={'assets/foodDeliveryLogo.svg'}
+              alt='food-delivery-logo'
+              className='inline-block'
+            />
             <div className='relative inline-block'>
               <input
                 type='text'
@@ -57,26 +76,20 @@ const Navbar = () => {
             <div className='hidden lg:flex items-center space-x-4'>
               <div className=''>
                 <a
-                  href='#'
-                  className='hover:text-gray-500 font-bold'
+                  href='#restaurant'
+                  className='hover:text-gray-500 font-bold page-scroll'
                 >
                   Restaurants
                 </a>
               </div>
               <div className=''>
-                <a
-                  href='#'
-                  className='hover:text-gray-500 font-bold'
-                >
+                <a href='#' className='hover:text-gray-500 font-bold'>
                   Deals
                 </a>
               </div>
               <span className='w-[2px] bg-[#EDEEF2] h-full'></span>
               <div className=''>
-                <a
-                  href='#'
-                  className='hover:text-gray-500 font-bold'
-                >
+                <a href='#' className='hover:text-gray-500 font-bold'>
                   My Orders
                 </a>
               </div>

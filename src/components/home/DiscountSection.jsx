@@ -18,7 +18,7 @@ export default function DiscountSection({ discountData }) {
             <div className='flex md:flex-col h-1/4 md:h-full gap-4 m-3 w-full md:w-auto justify-between md:justify-normal'>
               <div className=' ml-3 md:ml-0 md:mt-5 gap-4 flex h-full flex-col'>
                 <div className='font-[Nunito] font-bold'>{discount.title}</div>
-                <div className='text-blue-700 text-2xl font-[800]'>
+                <div className='text-blue-700 text-4xl font-[900]'>
                   {discount.percentage}% OFF
                 </div>
               </div>

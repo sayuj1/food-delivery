@@ -3,17 +3,17 @@ import React from 'react';
 const AppInfo = () => {
   return (
     <div className='min-h-screen'>
-      <div className='relative'>
+      <div className='relative flex'>
         <div className='lg:flex'>
           <img
             src={'assets/reviews.svg'}
             alt='Reviews'
-            className='lg:w-1/2 md:w-full'
+            className='lg:w-1/2 md:w-full mr-5'
           />
           <img
             src={'assets/squared.svg'}
             alt='Roll Set'
-            className='lg:w-1/2 md:w-full'
+            className='lg:w-1/2 md:w-full -ml-20'
           />
         </div>
         <div className='absolute inset-0 -inset-y-20 flex justify-end items-end'>
