@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoginContext } from '../../contexts/LoginContext';
 import { Link, useNavigate } from 'react-router-dom';
 import Alert from '../common/Alert';
-import LandingPage from '../common/LandingPage';
+import LandingPageCarousel from './LandingPageCarousel';
+import { login, register } from './apis';
 
 const AuthForm = props => {
-  const { title } = props;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("isAuth") == "true") navigate('/home')
+  }, []);
+  const { title } = props;
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -16,9 +21,9 @@ const AuthForm = props => {
     setShowPassword(prev => !prev);
   };
   const [alert, setAlert] = useState(false);
-  const { state, setState } = useLoginContext();
 
   const handleChange = e => {
+    setAlert(false)
     setUser(prev => {
       return {
         ...prev,
@@ -27,50 +32,29 @@ const AuthForm = props => {
     });
   };
 
-  const handleLoginToggle = () => {
-    //TODO: Keep Me LoggedIn
-  };
-
-  const handleLogin = () => {
-    const userExists = state.users.some(
-      userData =>
-        userData.email === user.email && userData.password === user.password
-    );
-
-    if (userExists) {
-      setState({
-        ...state,
-        isLoggedIn: true,
-      });
-      navigate('/home');
-    } else {
-      setAlert({
-        type: 'error',
-        message: 'Failed to Login: User does not exist!',
-      });
-    }
+  const handleLogin = async () => {
+    login(user)
+      .then(response => {
+        navigate('/home');
+      }).catch((error) => {
+        setAlert({
+          type: 'error',
+          message: error,
+        });
+      })
   };
 
   const handleSignup = () => {
-    const userExists = state.users.some(
-      userData =>
-        userData.email === user.email && userData.password === user.password
-    );
-
-    if (userExists) {
-      setAlert({
-        type: 'error',
-        message: 'Failed to Sign Up: User already exists!',
-      });
-    } else {
-      setState({
-        ...state,
-        users: [...state.users, user],
-        isLoggedIn: true,
-      });
-      navigate('/home');
-    }
-  };
+    register(user)
+      .then(() => {
+        navigate('/home');
+      }).catch((error) => {
+        setAlert({
+          type: 'error',
+          message: error,
+        });
+      })
+  }
 
   return (
     <div className='min-h-screen flex flex-col bg-gray-50 '>
@@ -85,7 +69,7 @@ const AuthForm = props => {
               className='md:mx-[120px]'
             />
             <div className='md:mx-[120px] items-center h-3/4 mt-24'>
-              <div className='text-4xl font-extrabold text-gray-1000 mb-5'>
+              <div className='text-4xl font-bold text-gray-1000 mb-5'>
                 {title}
               </div>
 
@@ -152,7 +136,7 @@ const AuthForm = props => {
                           type='checkbox'
                           id='keepLoggedIn'
                           className='mr-2'
-                          onChange={handleLoginToggle}
+                        // onChange={handleLoginToggle}
                         />
                         <label
                           htmlFor='keepLoggedIn'
@@ -164,14 +148,14 @@ const AuthForm = props => {
                     </div>
                     <button
                       type='button'
-                      className='w-full px-4 py-2 text-white bg-blue-500 rounded-md'
+                      className='w-full px-4 py-2 text-white bg-[#4E60FF] rounded-md'
                       onClick={handleLogin}
                     >
                       Log in
                     </button>
                     <a
                       href='#'
-                      className='text-sm flex justify-center text-blue-500'
+                      className='text-sm flex justify-center text-[#4E60FF]'
                     >
                       Forgot password?
                     </a>
@@ -179,7 +163,7 @@ const AuthForm = props => {
                 ) : (
                   <button
                     type='button'
-                    className='w-full px-4 py-2 text-white bg-blue-500 rounded-md'
+                    className='w-full px-4 py-2 text-white bg-[#4E60FF] rounded-md'
                     onClick={handleSignup}
                   >
                     Sign Up
@@ -190,21 +174,21 @@ const AuthForm = props => {
             {title === 'Login' ? (
               <div className='text-sm text-gray-500 flex justify-center'>
                 Don't have an account?
-                <Link to='/signup' className='text-sm text-blue-500'>
+                <Link to='/signup' className='text-sm text-[#4E60FF]'>
                   Sign up
                 </Link>
               </div>
             ) : (
               <div className='text-sm text-gray-500 flex justify-center'>
                 Have an account?
-                <Link to='/login' className='text-sm text-blue-500'>
+                <Link to='/login' className='text-sm text-[#4E60FF]'>
                   Login
                 </Link>
               </div>
             )}
           </div>
           <div className='hidden lg:block col-span-7 bg-[#697BFF]'>
-            <LandingPage />
+            <LandingPageCarousel />
           </div>
         </div>
       </div>

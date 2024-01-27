@@ -10,7 +10,7 @@ export default function CategorySection({ categories, setCategories }) {
   };
   return (
     <div className='grid grid-cols-3 lg:grid-cols-6 gap-4 mb-4'>
-      {categories.map(category => (
+      {categories?.map(category => (
         <div
           key={`${category.title}-${category.id}`}
           name={category.title}

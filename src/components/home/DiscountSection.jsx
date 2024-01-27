@@ -3,7 +3,7 @@ import { Avatar } from 'antd';
 export default function DiscountSection({ discountData }) {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-4'>
-      {discountData.map(discount => (
+      {discountData?.map(discount => (
         <div
           key={`${discount.title}-${discount.id}`}
           className={`rounded-xl shadow-md `}

@@ -1,16 +1,22 @@
-import React from 'react';
-import { useLoginContext } from '../../contexts/LoginContext';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Avatar, Badge, Dropdown } from 'antd';
+import { logout } from '../auth/apis';
+import Alert from './Alert';
 const Navbar = () => {
   const navigate = useNavigate();
-  const { state, setState } = useLoginContext();
+  const [alert, setAlert] = useState(false);
+
+
   const handleLogout = () => {
-    setState({
-      ...state,
-      isLoggedIn: false,
+    logout().then(() => {
+      navigate('/login');
+    }).catch((error) => {
+      setAlert({
+        type: 'error',
+        message: error,
+      });
     });
-    navigate('/login');
   };
   const profileItems = [
     {
@@ -24,7 +30,6 @@ const Navbar = () => {
       label: (
         <a
           href='#restaurant'
-          className='hover:text-gray-500 font-bold page-scroll'
         >
           Restaurants
         </a>
@@ -33,7 +38,7 @@ const Navbar = () => {
     {
       key: '2',
       label: (
-        <a href='#' className='hover:text-gray-500 font-bold page-scroll'>
+        <a href='#'>
           Deals
         </a>
       ),
@@ -41,18 +46,19 @@ const Navbar = () => {
     {
       key: '3',
       label: (
-        <a href='#' className='hover:text-gray-500 font-bold page-scroll'>
+        <a href='#'>
           My Orders
         </a>
       ),
     },
     {
       key: '4',
-      label: <button className='hover:text-gray-500 font-bold' onClick={handleLogout}>Logout</button>,
+      label: <button className='hover:text-gray-500 ' onClick={handleLogout}>Logout</button>,
     },
   ];
   return (
     <div>
+      {alert && <Alert type={alert?.type} message={alert?.message} />}
       <div className='md:w-[90%] mx-auto p-4'>
         <div className='flex items-center justify-between'>
           <div className='text-[#83859C] text-lg font-bold'>

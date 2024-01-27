@@ -1,4 +1,4 @@
-import React, { createContext, useState,useContext } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
 const LoginContext = createContext();
 
@@ -6,7 +6,7 @@ const initialState = {
   email: '',
   password: '',
   isLoggedIn: false,
-  users: [],
+  user: {},
 };
 
 const LoginProvider = ({ children }) => {

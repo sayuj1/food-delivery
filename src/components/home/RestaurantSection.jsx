@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar,Badge } from 'antd';
+import { Avatar, Badge } from 'antd';
 export default function RestaurantSection({ restaurantsData }) {
   return (
     <React.Fragment>
@@ -8,12 +8,12 @@ export default function RestaurantSection({ restaurantsData }) {
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {restaurantsData?.length > 0 &&
-          restaurantsData.map(restaurant => (
+          restaurantsData?.map(restaurant => (
             <div
               key={`${restaurant.name}-${restaurant.id}`}
               className='bg-white rounded-xl shadow-md'
             >
-              <div className='w-full h-[135px] object-cover rounded-xl relative'>
+              <div className='w-full h-[135px] lg:h-[175px] object-cover rounded-xl relative'>
                 <Avatar
                   shape='square'
                   src={restaurant.image}
@@ -36,21 +36,21 @@ export default function RestaurantSection({ restaurantsData }) {
                 <div className='flex justify-between'>
                   <div className=''>{restaurant.name}</div>
                   <div className=''>
-                    {restaurant.cartValue<=0?<Avatar
-                        shape='square'
-                        src={'assets/shopping-bag.svg'}
-                        className='w-6 h-6 cursor-pointer'
-                      />:
-                    <Badge count={restaurant.cartValue} color='#4E60FF' className='text-[2px]' style={{borderRadius: '6px'}}>
-                      <Avatar
-                        shape='square'
-                        src={'assets/shoppingBag.svg'}
-                        style={{
-                          padding: '0 0 9px 9px',
-                          cursor: 'pointer',
-                        }}
-                      />
-                    </Badge>}
+                    {restaurant.cartValue <= 0 ? <Avatar
+                      shape='square'
+                      src={'assets/shopping-bag.svg'}
+                      className='w-6 h-6 cursor-pointer'
+                    /> :
+                      <Badge count={restaurant.cartValue} color='#4E60FF' className='text-[2px]' style={{ borderRadius: '6px' }}>
+                        <Avatar
+                          shape='square'
+                          src={'assets/shoppingBag.svg'}
+                          style={{
+                            padding: '0 0 9px 9px',
+                            cursor: 'pointer',
+                          }}
+                        />
+                      </Badge>}
                   </div>
                 </div>
                 <div className='flex text-[12px] text-[#83859C] font-normal'>
