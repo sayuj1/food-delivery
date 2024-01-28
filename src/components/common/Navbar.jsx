@@ -38,17 +38,25 @@ const Navbar = () => {
     {
       key: '2',
       label: (
-        <a href='#'>
-          Deals
-        </a>
+        <React.Fragment>
+          {/* remove the below line of code once you have a valid href id */}
+          {/* eslint-disable jsx-a11y/anchor-is-valid */}
+          <a href='#'>
+            Deals
+          </a>
+        </React.Fragment>
       ),
     },
     {
       key: '3',
       label: (
-        <a href='#'>
-          My Orders
-        </a>
+        <React.Fragment>
+          {/* remove the below line of code once you have a valid href id */}
+          {/* eslint-disable jsx-a11y/anchor-is-valid */}
+          <a href='#'>
+            My Orders
+          </a>
+        </React.Fragment>
       ),
     },
     {
@@ -89,12 +97,16 @@ const Navbar = () => {
                 </a>
               </div>
               <div className=''>
+                {/* remove the below line of code once you have a valid href id */}
+                {/* eslint-disable jsx-a11y/anchor-is-valid */}
                 <a href='#' className='hover:text-gray-500 font-bold'>
                   Deals
                 </a>
               </div>
               <span className='w-[2px] bg-[#EDEEF2] h-full'></span>
               <div className=''>
+                {/* remove the below line of code once you have a valid href id */}
+                {/* eslint-disable jsx-a11y/anchor-is-valid */}
                 <a href='#' className='hover:text-gray-500 font-bold'>
                   My Orders
                 </a>

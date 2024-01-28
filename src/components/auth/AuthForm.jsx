@@ -78,7 +78,7 @@ const AuthForm = props => {
               className='md:mx-[120px]'
             />
             <div className='md:mx-[120px] items-center h-3/4 mt-24'>
-              <div className='text-4xl font-bold text-gray-1000 mb-5'>
+              <div className='text-4xl font-bold text-gray-1000 mb-5' data-testid='title'>
                 {title}
               </div>
 
@@ -158,9 +158,12 @@ const AuthForm = props => {
                       type='button'
                       className='w-full px-4 py-2 text-white bg-[#4E60FF] rounded-md'
                       onClick={handleLogin}
+                      data-testid="login-button"
                     >
                       {loader ? <span className='flex justify-center '><Loader width="30px" height="30px" marginTop="3px" /> LoggingIn...</span> : <span>Login</span>}
                     </button>
+                    {/* remove the below line of code once you have a valid href id */}
+                    {/* eslint-disable jsx-a11y/anchor-is-valid */}
                     <a
                       href='#'
                       className='text-sm flex justify-center text-[#4E60FF]'
@@ -173,6 +176,7 @@ const AuthForm = props => {
                     type='button'
                     className='w-full px-4 py-2 text-white bg-[#4E60FF] rounded-md h-[40px]'
                     onClick={handleSignup}
+                    data-testid="signup-button"
                   >
                     {loader ? <span className='flex justify-center '><Loader width="30px" height="30px" marginTop="3px" /> Signing Up</span> : <span>Sign Up</span>}
                   </button>
