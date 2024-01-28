@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# Food Delivery App 🍔🚚
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Food Delivery App! This application provides a fast and responsive user interface for food delivery, featuring Login and Home pages with a sleek design inspired by the provided [Figma template.](https://www.figma.com/file/YlRx16dbTcyLjMWAZLb5GU/Food-Delivery-UI---Free-(Copy)?type=design&node-id=1-849&mode=design&t=mlFdmmt7gZovH9BW-0) Below, you'll find everything you need to get started, contribute, and enjoy the delicious journey.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+-   Features
+-   Tech Stack
+-   Directory Structure
+-   Getting Started
+- Deployed App
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   **User Authentication:** Secure login system for a personalized experience.
+-   **Interactive UI:** Sleek and responsive design for seamless navigation.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+-   **Frontend:**
+    -   ReactJS
+    -   Ant Design
+    - Tailwind CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   **Build and Bundling:**
+    -   Webpack
+    
+-   **Languages:**
+    -   HTML5
+    -   CSS3
+    -   JavaScript (ES6+)
 
-### `npm run build`
+## Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+food-delivery/
+|-- src/
+|   |-- components/
+|		|-- auth/ 
+|			|-- Login.jsx
+|			|-- Signup.jsx
+|			|-- PrivateRoute.js
+|			|-- LandingPageCarousel.jsx
+|			|-- AuthForm.jsx
+|			|-- api.js
+|       |-- common/
+|			|-- Alert.jsx
+|			|-- Loader.js
+|			|-- Navbar.jsx
+|			|-- Page404.js
+|			|-- PageNotFound.js
+|       |-- home/
+|			|-- Home.jsx
+|			|-- DiscountSection.jsx
+|			|-- CategorySection.jsx
+|			|-- RestaurantSection.jsx
+|			|-- api.js
+|	|-- contexts/
+|		|-- LoginContext.js
+|   |-- App.js
+|   |-- index.js
+|	|-- api.js
+|-- public/
+|	|-- assets/
+|-- package.json
+|-- .gitignore
+|-- package.json
+|-- README.md
+|-- tailwind.config.js
+```
+Each React component is designed with a clear and self-explanatory name. This intentional design aims to uphold the principles of Single Responsibility, promoting code reuse, maintaining code quality, and ensuring testability.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1.  **Clone the repository:**
+```bash
+git clone https://github.com/your-username/food-delivery-react-app.git
+cd food-delivery
+```
+2. **Install dependencies:**
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Configuration
+ **Frontend Configuration:**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   Open `/src/api.js` and set the API endpoint:
+```javascript
+baseURL = 'http://localhost:4000/'; // Replace with your backend API endpoint
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Running the Application
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Start the frontend development server:**
+```bash
+cd food-delivery
+npm start
+```
 
-## Learn More
+## Deployed App
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Check out the deployed app at [food-delivery-sayuj.vercel.app](https://food-delivery-sayuj.vercel.app/).
