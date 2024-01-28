@@ -71,11 +71,11 @@ const AuthForm = props => {
         <div className='grid grid-cols-1 lg:grid-cols-12 w-full'>
           {alert && <Alert type={alert?.type} message={alert?.message} />}
 
-          <div className='col-span-12 lg:col-span-5  h-full p-6 space-y-6 bg-white shadow-md hover:shadow-lg rounded-md'>
+          <div className='col-span-12 lg:col-span-5  h-full px-6 pt-6 md:pb-6 space-y-6 bg-white shadow-md hover:shadow-lg rounded-md'>
             <img
               src={'assets/foodDeliveryLogo.svg'}
               alt='food-delivery-logo'
-              className='md:mx-[120px] mb-24'
+              className='md:mx-[120px] mb-10 lg:mb-24'
             />
             <div className='md:mx-[120px] items-center h-3/4 mt-24'>
               <div className='text-4xl font-bold text-gray-1000 mb-5' data-testid='title'>
@@ -184,14 +184,14 @@ const AuthForm = props => {
               </form>
             </div>
             {title === 'Login' ? (
-              <div className='text-sm text-gray-500 flex justify-center items-end  '>
+              <div className='text-sm text-gray-500 flex justify-center items-end '>
                 Don't have an account?
                 <Link to='/signup' className='text-sm text-[#4E60FF] font-bold'>
                   &nbsp; Sign up
                 </Link>
               </div>
             ) : (
-              <div className='text-sm text-gray-500 flex justify-center'>
+              <div className='text-sm text-gray-500 flex justify-center items-end'>
                 Have an account?
                 <Link to='/login' className='text-sm text-[#4E60FF] font-bold'>
                   &nbsp; Login
