@@ -57,6 +57,8 @@ food-delivery/
 |			|-- api.js
 |	|-- contexts/
 |		|-- LoginContext.js
+|	|-- tests/
+|		|-- AuthForm.test.js
 |   |-- App.js
 |   |-- index.js
 |	|-- api.js
