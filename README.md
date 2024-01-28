@@ -3,14 +3,6 @@
 
 Welcome to the Food Delivery App! This application provides a fast and responsive user interface for food delivery, featuring Login and Home pages with a sleek design inspired by the provided [Figma template.](https://www.figma.com/file/YlRx16dbTcyLjMWAZLb5GU/Food-Delivery-UI---Free-(Copy)?type=design&node-id=1-849&mode=design&t=mlFdmmt7gZovH9BW-0) Below, you'll find everything you need to get started, contribute, and enjoy the delicious journey.
 
-## Table of Contents
-
--   Features
--   Tech Stack
--   Getting Started
--   Directory Structure
-- Deployed App
-
 ## Features
 
 -   **User Authentication:** Secure login system for a personalized experience.
