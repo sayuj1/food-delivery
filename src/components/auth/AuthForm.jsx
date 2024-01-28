@@ -75,7 +75,7 @@ const AuthForm = props => {
             <img
               src={'assets/foodDeliveryLogo.svg'}
               alt='food-delivery-logo'
-              className='md:mx-[120px]'
+              className='md:mx-[120px] mb-24'
             />
             <div className='md:mx-[120px] items-center h-3/4 mt-24'>
               <div className='text-4xl font-bold text-gray-1000 mb-5' data-testid='title'>
@@ -123,7 +123,7 @@ const AuthForm = props => {
                       onChange={handleChange}
                       className='mt-1 p-2 w-full border rounded-md hover:border-blue-500'
                       required
-                      placeholder='min. 8 characters'
+                      placeholder='your password'
                     />
                     <span
                       className='absolute inset-y-0 right-0 flex items-center pr-3'
@@ -166,7 +166,7 @@ const AuthForm = props => {
                     {/* eslint-disable jsx-a11y/anchor-is-valid */}
                     <a
                       href='#'
-                      className='text-sm flex justify-center text-[#4E60FF]'
+                      className='text-sm flex justify-center text-[#4E60FF] font-bold'
                     >
                       Forgot password?
                     </a>
@@ -186,15 +186,15 @@ const AuthForm = props => {
             {title === 'Login' ? (
               <div className='text-sm text-gray-500 flex justify-center items-end  '>
                 Don't have an account?
-                <Link to='/signup' className='text-sm text-[#4E60FF]'>
-                  Sign up
+                <Link to='/signup' className='text-sm text-[#4E60FF] font-bold'>
+                  &nbsp; Sign up
                 </Link>
               </div>
             ) : (
               <div className='text-sm text-gray-500 flex justify-center'>
                 Have an account?
-                <Link to='/login' className='text-sm text-[#4E60FF]'>
-                  Login
+                <Link to='/login' className='text-sm text-[#4E60FF] font-bold'>
+                  &nbsp; Login
                 </Link>
               </div>
             )}
