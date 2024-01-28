@@ -12,10 +12,8 @@ export const login = (user) => {
         resolve("Logged In Successfull!");
       })
       .catch(error => {
-        console.log(error)
         if (typeof error?.response?.data?.error === 'string') {
           // Case: Invalid credentials
-          console.error('Error:', error.response.data.error);
           reject(error.response.data.error)
         } else if (typeof error?.response?.data?.error === 'object') {
           // Case: All error messages

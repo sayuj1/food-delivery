@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useLoginContext } from '../../contexts/LoginContext';
 import { Link, useNavigate } from 'react-router-dom';
 import Alert from '../common/Alert';
 import LandingPageCarousel from './LandingPageCarousel';
 import { login, register } from './apis';
+import Loader from '../common/Loader';
 
 const AuthForm = props => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (localStorage.getItem("isAuth") == "true") navigate('/home')
-  }, []);
   const { title } = props;
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [loader, setLoader] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("isAuth") === "true") navigate('/home');
+    // eslint-disable-next-line
+  }, []);
+
   const handleTogglePassword = () => {
     setShowPassword(prev => !prev);
   };
@@ -33,27 +36,33 @@ const AuthForm = props => {
   };
 
   const handleLogin = async () => {
-    login(user)
-      .then(response => {
-        navigate('/home');
-      }).catch((error) => {
-        setAlert({
-          type: 'error',
-          message: error,
-        });
-      })
+    setLoader(true);
+    try {
+      await login(user);
+      navigate('/home');
+    } catch (error) {
+      setAlert({
+        type: 'error',
+        message: error,
+      });
+    } finally {
+      setLoader(false);
+    }
   };
 
-  const handleSignup = () => {
-    register(user)
-      .then(() => {
-        navigate('/home');
-      }).catch((error) => {
-        setAlert({
-          type: 'error',
-          message: error,
-        });
-      })
+  const handleSignup = async () => {
+    setLoader(true);
+    try {
+      await register(user);
+      navigate('/home');
+    } catch (error) {
+      setAlert({
+        type: 'error',
+        message: error,
+      });
+    } finally {
+      setLoader(false);
+    }
   }
 
   return (
@@ -136,7 +145,6 @@ const AuthForm = props => {
                           type='checkbox'
                           id='keepLoggedIn'
                           className='mr-2'
-                        // onChange={handleLoginToggle}
                         />
                         <label
                           htmlFor='keepLoggedIn'
@@ -151,7 +159,7 @@ const AuthForm = props => {
                       className='w-full px-4 py-2 text-white bg-[#4E60FF] rounded-md'
                       onClick={handleLogin}
                     >
-                      Log in
+                      {loader ? <span className='flex justify-center '><Loader width="30px" height="30px" marginTop="3px" /> LoggingIn...</span> : <span>Login</span>}
                     </button>
                     <a
                       href='#'
@@ -163,16 +171,16 @@ const AuthForm = props => {
                 ) : (
                   <button
                     type='button'
-                    className='w-full px-4 py-2 text-white bg-[#4E60FF] rounded-md'
+                    className='w-full px-4 py-2 text-white bg-[#4E60FF] rounded-md h-[40px]'
                     onClick={handleSignup}
                   >
-                    Sign Up
+                    {loader ? <span className='flex justify-center '><Loader width="30px" height="30px" marginTop="3px" /> Signing Up</span> : <span>Sign Up</span>}
                   </button>
                 )}
               </form>
             </div>
             {title === 'Login' ? (
-              <div className='text-sm text-gray-500 flex justify-center'>
+              <div className='text-sm text-gray-500 flex justify-center items-end  '>
                 Don't have an account?
                 <Link to='/signup' className='text-sm text-[#4E60FF]'>
                   Sign up

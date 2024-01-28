@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'antd';
-
+import './carousel-override.css';
 const LandingPageCarousel = () => {
   const carouselSize = 4;
   const infoArr = Array(carouselSize).fill(0);

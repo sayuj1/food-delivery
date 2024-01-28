@@ -1,0 +1,14 @@
+.slick-dots > li {
+  width: 8px !important;
+  height: 15px !important;
+}
+
+:where(.css-dev-only-do-not-override-1qhpsh8).ant-carousel .slick-dots li button {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 4px;
+}
+
+.slick-dots > li.slick-active {
+  width: 9px !important;
+}

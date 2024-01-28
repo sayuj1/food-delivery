@@ -8,9 +8,9 @@ import Alert from '../common/Alert';
 
 
 const Home = () => {
-  const [restaurantsData, setRestaurantsData] = useState();
-  const [discountData, setDiscountData] = useState();
-  const [categories, setCategories] = useState();
+  const [restaurantsData, setRestaurantsData] = useState([]);
+  const [discountData, setDiscountData] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [alert, setAlert] = useState(false);
 
   const fetchRestaurants = async () => {

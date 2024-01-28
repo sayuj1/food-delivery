@@ -8,11 +8,9 @@ import {
 import Home from './components/home/Home';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
+import PrivateRoute from './components/auth/PrivateRoute';
+import { PageNotFound } from './components/common/PageNotFound';
 
-const PrivateRoute = ({ children }) => {
-  if (localStorage.getItem("isAuth") == "true") return children;
-  return <Navigate to='/login' replace />;
-};
 
 const LandingPage = () => <Navigate to='/home' replace />
 
@@ -31,6 +29,7 @@ const App = () => {
             </PrivateRoute>
           }
         />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Router>
   );
