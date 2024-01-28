@@ -123,7 +123,7 @@ const AuthForm = props => {
                       onChange={handleChange}
                       className='mt-1 p-2 w-full border rounded-md hover:border-blue-500'
                       required
-                      placeholder='your password'
+                      placeholder='min. 8 characters'
                     />
                     <span
                       className='absolute inset-y-0 right-0 flex items-center pr-3'
